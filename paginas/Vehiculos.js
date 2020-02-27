@@ -86,7 +86,7 @@ export default ({ history }) => {
 							<View
 								key={vehiculo.placa}
 								style={[
-									styles.MarcoPersona_Personas,
+									styles.Marco,
 									styles.container_Personas,
 									styles.horizontal
 								]}

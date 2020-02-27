@@ -5,7 +5,8 @@ import {
 	SafeAreaView,
 	ScrollView,
 	View,
-	ActivityIndicator
+	ActivityIndicator,
+	Alert
 } from 'react-native'
 import {
 	handleAndroidBackButton,
@@ -33,6 +34,45 @@ export default ({ history }) => {
 		setError(null)
 
 		try {
+			await axios.get(`http://157.245.245.214/personas/`).then(res => {
+				setPersonas(res.data)
+			})
+
+			setLoading(false)
+		} catch (error) {
+			setError(error)
+		}
+	}
+
+	const AlertaEliminar = id => {
+		Alert.alert(
+			'Eliminar',
+			'¿Está seguro que desea eliminar esta persona?',
+			[
+				{
+					text: 'Cancelar',
+					onPress: () => console.log('Cancel Pressed'),
+					style: 'cancel'
+				},
+				{
+					text: 'Eliminar',
+					onPress: () => {
+						DeletePerson(id)
+					}
+				}
+			],
+			{ cancelable: false }
+		)
+	}
+
+	const DeletePerson = async id => {
+		setLoading(true)
+		setError(null)
+
+		try {
+			await axios
+				.delete(`http://157.245.245.214/personas/${id}`)
+				.then(res => {})
 			await axios.get(`http://157.245.245.214/personas/`).then(res => {
 				setPersonas(res.data)
 			})
@@ -75,7 +115,7 @@ export default ({ history }) => {
 	}
 
 	return (
-		<SafeAreaView>
+		<SafeAreaView style={{ flex: 1 }}>
 			<HeaderList
 				history={history}
 				titulo={'Personas'}
@@ -97,16 +137,30 @@ export default ({ history }) => {
 								<View style={styles.contenedo_info_vehiculo}>
 									<Text style={styles.nombrePersona}>{persona.nombre}</Text>
 									<Text>{persona.identificacion}</Text>
+									<Text>Teléfono: {persona.telefono}</Text>
+									<Text>Dirección: {persona.direccion}</Text>
+									<Text>Ciudad: {persona.ciudad}</Text>
 								</View>
-								<TouchableHighlight
-									underlayColor="rgba(0,0,0,0.1)"
-									style={styles.verMas}
-									onPress={() =>
-										history.push(`/ver-mas-persona/${persona.identificacion}`)
-									}
-								>
-									<Text style={styles.textVerMas}> Ver más </Text>
-								</TouchableHighlight>
+								<View style={styles.contenedor_botones_persona}>
+									<TouchableHighlight
+										underlayColor="rgba(0,0,0,0.1)"
+										style={styles.verMas}
+										onPress={() =>
+											history.push(`/editar-persona/${persona.identificacion}`)
+										}
+									>
+										<Text style={styles.textVerMas}>Editar</Text>
+									</TouchableHighlight>
+									<TouchableHighlight
+										underlayColor="rgba(0,0,0,0.1)"
+										style={styles.Eliminar_persona}
+										onPress={() => {
+											AlertaEliminar(persona.identificacion)
+										}}
+									>
+										<Text style={styles.textVerMas}>Eliminar</Text>
+									</TouchableHighlight>
+								</View>
 							</View>
 						)
 					})}

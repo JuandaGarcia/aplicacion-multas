@@ -25,6 +25,17 @@ const styles = StyleSheet.create({
 		borderColor: '#292b98',
 		backgroundColor: 'transparent',
 		borderRadius: 5,
+		height: 150,
+		width: 350,
+		marginBottom: 20
+	},
+	Marco: {
+		alignItems: 'center',
+		justifyContent: 'center',
+		borderWidth: 2,
+		borderColor: '#292b98',
+		backgroundColor: 'transparent',
+		borderRadius: 5,
 		height: 70,
 		width: 310,
 		marginBottom: 20
@@ -55,6 +66,10 @@ const styles = StyleSheet.create({
 		justifyContent: 'space-around',
 		padding: 10
 	},
+	contenedor_botones_persona: {
+		position: 'absolute',
+		right: 15
+	},
 	verMas: {
 		alignItems: 'center',
 		justifyContent: 'center',
@@ -62,8 +77,16 @@ const styles = StyleSheet.create({
 		width: 100,
 		backgroundColor: '#68B1FF',
 		borderRadius: 5,
-		position: 'absolute',
-		right: 15
+		margin: 10
+	},
+	Eliminar_persona: {
+		alignItems: 'center',
+		justifyContent: 'center',
+		height: 50,
+		width: 100,
+		backgroundColor: '#FF8D8D',
+		borderRadius: 5,
+		margin: 10
 	},
 	textVerMas: {
 		color: 'white',
@@ -129,6 +152,26 @@ const styles = StyleSheet.create({
 	},
 	contenedorBotonNPersona: {
 		alignItems: 'center'
+	},
+	textoidentificacion: {
+		fontWeight: 'bold',
+		marginBottom: 10
+	},
+	containerObservacion: {
+		width: 200,
+		marginBottom: 10,
+		marginTop: 10
+	},
+	ItemMulta: {
+		alignItems: 'center',
+		justifyContent: 'center',
+		borderWidth: 2,
+		borderColor: '#292b98',
+		backgroundColor: 'transparent',
+		borderRadius: 5,
+		height: 230,
+		width: 350,
+		marginBottom: 20
 	}
 })
 

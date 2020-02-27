@@ -4,8 +4,9 @@ import Home from './paginas/Home'
 import Vehiculos from './paginas/Vehiculos'
 import Personas from './paginas/Personas'
 import Multas from './paginas/Multas'
-import VerMasPersona from './paginas/VerMasPersona'
+import EditarPersona from './paginas/EditarPersona'
 import AñadirPersona from './paginas/AñadirPersona'
+import AñadirMultas from './paginas/AñadirMultas'
 
 export default function App() {
 	return (
@@ -15,11 +16,12 @@ export default function App() {
 				<Route exact path="/personas" component={Personas} />
 				<Route
 					exact
-					path="/ver-mas-persona/:identificacion"
-					component={VerMasPersona}
+					path="/editar-persona/:identificacion"
+					component={EditarPersona}
 				/>
 				<Route exact path="/añadir-personas" component={AñadirPersona} />
 				<Route exact path="/multas" component={Multas} />
+				<Route exact path="/añadir-multas" component={AñadirMultas} />
 				<Route exact path="/vehiculos" component={Vehiculos} />
 			</Switch>
 		</NativeRouter>
