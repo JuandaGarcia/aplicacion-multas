@@ -102,16 +102,8 @@ export default function EditarPersona(props) {
 				})
 				.then(response => {
 					AlertaPUT()
-					/* dispatch({
-						type: FOUND_USER,
-						data: response.data[0]
-					}) */
 				})
-				.catch(error => {
-					/* dispatch({
-						type: ERROR_FINDING_USER
-					}) */
-				})
+				.catch(error => {})
 
 			setLoading(false)
 		} catch (error) {

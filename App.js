@@ -7,6 +7,7 @@ import Multas from './paginas/Multas'
 import EditarPersona from './paginas/EditarPersona'
 import AñadirPersona from './paginas/AñadirPersona'
 import AñadirMultas from './paginas/AñadirMultas'
+import EditarMulta from './paginas/EditarMulta'
 
 export default function App() {
 	return (
@@ -22,6 +23,7 @@ export default function App() {
 				<Route exact path="/añadir-personas" component={AñadirPersona} />
 				<Route exact path="/multas" component={Multas} />
 				<Route exact path="/añadir-multas" component={AñadirMultas} />
+				<Route exact path="/editar-multa/:codigo" component={EditarMulta} />
 				<Route exact path="/vehiculos" component={Vehiculos} />
 			</Switch>
 		</NativeRouter>

@@ -148,18 +148,13 @@ export default ({ history }) => {
 									<Text style={styles.nombrePersona}>
 										Total a pagar: {multa.total_pagar}
 									</Text>
-									{/* <Text style={styles.nombrePersona}>{persona.nombre}</Text>
-									<Text>{persona.identificacion}</Text>
-									<Text>Teléfono: {persona.telefono}</Text>
-									<Text>Dirección: {persona.direccion}</Text>
-									<Text>Ciudad: {persona.ciudad}</Text> */}
 								</View>
 								<View style={styles.contenedor_botones_persona}>
 									<TouchableHighlight
 										underlayColor="rgba(0,0,0,0.1)"
 										style={styles.verMas}
 										onPress={() => {
-											/* history.push(`/editar-persona/${persona.identificacion}`) */
+											history.push(`/editar-multa/${multa.codigo}`)
 										}}
 									>
 										<Text style={styles.textVerMas}>Editar</Text>
